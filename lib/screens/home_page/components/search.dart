@@ -162,8 +162,10 @@ class _SearchState extends State<Search> {
                     );
                   }
                 },
-                icon: Image.asset('assets/icons/search.png',
-                    color: !isFocused ? _kBorderColor : null,),
+                icon: Image.asset(
+                  'assets/icons/search.png',
+                  color: !isFocused ? _kBorderColor : null,
+                ),
               ),
               hintText: 'Digite o nome do pokémon...',
               hintStyle: const TextStyle(
@@ -197,7 +199,7 @@ class _SearchState extends State<Search> {
           child: Padding(
             padding: const EdgeInsets.all(8.0).copyWith(left: 0, right: 0),
             child: const Text(
-              '''Utilize a pokédex para encontrar mais informações sobre os seus pokémons.''',
+              '''Utilize a pokedart para encontrar mais informações sobre os seus pokémons.''',
               style: TextStyle(
                 fontSize: _kFontSize,
                 fontWeight: FontWeight.w300,
@@ -217,7 +219,7 @@ class _SearchState extends State<Search> {
     return Row(
       children: const [
         Text(
-          'Conheça a Pokédex',
+          'Conheça à PokeDart',
           style: TextStyle(
             fontSize: _kFontSize,
             fontWeight: FontWeight.bold,

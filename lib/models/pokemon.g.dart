@@ -28,6 +28,9 @@ Pokemon _$PokemonFromJson(Map<String, dynamic> json) => Pokemon(
       sprites: json['sprites'] == null
           ? null
           : Sprites.fromJson(json['sprites'] as Map<String, dynamic>),
+      isBaby: json['is_baby'] as bool?,
+      isLegendary: json['is_legendary'] as bool?,
+      isMythical: json['is_mythical'] as bool?,
     );
 
 Map<String, dynamic> _$PokemonToJson(Pokemon instance) => <String, dynamic>{
@@ -40,6 +43,9 @@ Map<String, dynamic> _$PokemonToJson(Pokemon instance) => <String, dynamic>{
       'abilities': instance.abilities,
       'moves': instance.moves,
       'sprites': instance.sprites,
+      'is_baby': instance.isBaby,
+      'is_legendary': instance.isLegendary,
+      'is_mythical': instance.isMythical,
     };
 
 Abilities _$AbilitiesFromJson(Map<String, dynamic> json) => Abilities(

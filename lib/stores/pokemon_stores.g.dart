@@ -9,7 +9,8 @@ part of 'pokemon_stores.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$PokemonApiStore on _PokeApiStoreBase, Store {
-  final _$pokemonsAtom = Atom(name: '_PokeApiStoreBase.pokemons');
+  late final _$pokemonsAtom =
+      Atom(name: '_PokeApiStoreBase.pokemons', context: context);
 
   @override
   List<Pokemon> get pokemons {
@@ -24,7 +25,8 @@ mixin _$PokemonApiStore on _PokeApiStoreBase, Store {
     });
   }
 
-  final _$pokemonAtom = Atom(name: '_PokeApiStoreBase.pokemon');
+  late final _$pokemonAtom =
+      Atom(name: '_PokeApiStoreBase.pokemon', context: context);
 
   @override
   Pokemon get pokemon {
@@ -39,7 +41,8 @@ mixin _$PokemonApiStore on _PokeApiStoreBase, Store {
     });
   }
 
-  final _$isFavoriteAtom = Atom(name: '_PokeApiStoreBase.isFavorite');
+  late final _$isFavoriteAtom =
+      Atom(name: '_PokeApiStoreBase.isFavorite', context: context);
 
   @override
   bool get isFavorite {
@@ -54,7 +57,8 @@ mixin _$PokemonApiStore on _PokeApiStoreBase, Store {
     });
   }
 
-  final _$historyListAtom = Atom(name: '_PokeApiStoreBase.historyList');
+  late final _$historyListAtom =
+      Atom(name: '_PokeApiStoreBase.historyList', context: context);
 
   @override
   List<String> get historyList {
@@ -69,74 +73,76 @@ mixin _$PokemonApiStore on _PokeApiStoreBase, Store {
     });
   }
 
-  final _$getHistoryListAsyncAction =
-      AsyncAction('_PokeApiStoreBase.getHistoryList');
+  late final _$getHistoryListAsyncAction =
+      AsyncAction('_PokeApiStoreBase.getHistoryList', context: context);
 
   @override
-  Future getHistoryList() {
+  Future<void> getHistoryList() {
     return _$getHistoryListAsyncAction.run(() => super.getHistoryList());
   }
 
-  final _$setHistoryAsyncAction = AsyncAction('_PokeApiStoreBase.setHistory');
+  late final _$setHistoryAsyncAction =
+      AsyncAction('_PokeApiStoreBase.setHistory', context: context);
 
   @override
-  Future setHistory(String name) {
+  Future<void> setHistory(String name) {
     return _$setHistoryAsyncAction.run(() => super.setHistory(name));
   }
 
-  final _$getFavoriteListAsyncAction =
-      AsyncAction('_PokeApiStoreBase.getFavoriteList');
+  late final _$getFavoriteListAsyncAction =
+      AsyncAction('_PokeApiStoreBase.getFavoriteList', context: context);
 
   @override
-  Future getFavoriteList() {
+  Future<void> getFavoriteList() {
     return _$getFavoriteListAsyncAction.run(() => super.getFavoriteList());
   }
 
-  final _$getFavoriteAsyncAction = AsyncAction('_PokeApiStoreBase.getFavorite');
+  late final _$getFavoriteAsyncAction =
+      AsyncAction('_PokeApiStoreBase.getFavorite', context: context);
 
   @override
-  Future getFavorite(String name) {
+  Future<void> getFavorite(String name) {
     return _$getFavoriteAsyncAction.run(() => super.getFavorite(name));
   }
 
-  final _$changeFavoriteAsyncAction =
-      AsyncAction('_PokeApiStoreBase.changeFavorite');
+  late final _$changeFavoriteAsyncAction =
+      AsyncAction('_PokeApiStoreBase.changeFavorite', context: context);
 
   @override
-  Future changeFavorite(Pokemon pokemon) {
+  Future<void> changeFavorite(Pokemon pokemon) {
     return _$changeFavoriteAsyncAction.run(() => super.changeFavorite(pokemon));
   }
 
-  final _$fetchPokemonsAsyncAction =
-      AsyncAction('_PokeApiStoreBase.fetchPokemons');
+  late final _$fetchPokemonsAsyncAction =
+      AsyncAction('_PokeApiStoreBase.fetchPokemons', context: context);
 
   @override
-  Future fetchPokemons() {
+  Future<void> fetchPokemons() {
     return _$fetchPokemonsAsyncAction.run(() => super.fetchPokemons());
   }
 
-  final _$searchPokemonAsyncAction =
-      AsyncAction('_PokeApiStoreBase.searchPokemon');
+  late final _$searchPokemonAsyncAction =
+      AsyncAction('_PokeApiStoreBase.searchPokemon', context: context);
 
   @override
-  Future searchPokemon(String name) {
+  Future<void> searchPokemon(String name) {
     return _$searchPokemonAsyncAction.run(() => super.searchPokemon(name));
   }
 
-  final _$fetchDataListPokemonAsyncAction =
-      AsyncAction('_PokeApiStoreBase.fetchDataListPokemon');
+  late final _$fetchDataListPokemonAsyncAction =
+      AsyncAction('_PokeApiStoreBase.fetchDataListPokemon', context: context);
 
   @override
-  Future fetchDataListPokemon() {
+  Future<void> fetchDataListPokemon() {
     return _$fetchDataListPokemonAsyncAction
         .run(() => super.fetchDataListPokemon());
   }
 
-  final _$fetchPokemonAsyncAction =
-      AsyncAction('_PokeApiStoreBase.fetchPokemon');
+  late final _$fetchPokemonAsyncAction =
+      AsyncAction('_PokeApiStoreBase.fetchPokemon', context: context);
 
   @override
-  Future fetchPokemon(String name) {
+  Future<void> fetchPokemon(String name) {
     return _$fetchPokemonAsyncAction.run(() => super.fetchPokemon(name));
   }
 

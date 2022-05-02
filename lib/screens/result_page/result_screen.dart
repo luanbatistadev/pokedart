@@ -31,21 +31,22 @@ class _ResultPageState extends State<ResultPage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          _buildAppBar(context),
+          _buildAppBar(),
           _buildBody(),
         ],
       ),
     );
   }
 
-  Widget _buildAppBar(BuildContext context) {
+  Widget _buildAppBar() {
     return SliverAppBar(
       title: const Text(
         'Resultado da Pesquisa',
         style: TextStyle(
-            color: Color.fromARGB(255, 2, 0, 91),
-            fontFamily: 'OpenSans',
-            fontWeight: FontWeight.bold,),
+          color: Color.fromARGB(255, 2, 0, 91),
+          fontFamily: 'OpenSans',
+          fontWeight: FontWeight.bold,
+        ),
       ),
       leading: IconButton(
         icon: const Icon(
@@ -68,10 +69,11 @@ class _ResultPageState extends State<ResultPage> {
               child: Text(
                 widget.pokemonName,
                 style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 16,
-                    fontFamily: 'OpenSans',
-                    fontWeight: FontWeight.w300,),
+                  color: Colors.grey,
+                  fontSize: 16,
+                  fontFamily: 'OpenSans',
+                  fontWeight: FontWeight.w300,
+                ),
               ),
             ),
           ],
@@ -82,16 +84,29 @@ class _ResultPageState extends State<ResultPage> {
 
   Widget _buildBody() {
     return Observer(
-      builder: (context) => SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (context, index) {
-            return PokemonTile(
-              pokemon: _pokemonApiStore.pokemons[index],
-            );
-          },
-          childCount: _pokemonApiStore.pokemons.length,
-        ),
-      ),
+      builder: (context) {
+        if (_pokemonApiStore.pokemons.isEmpty) {
+          return SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0).copyWith(top: 300),
+              child: const Center(
+                child: Text('Nenhum Pokemon Encontrado!'),
+              ),
+            ),
+          );
+        } else {
+          return SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return PokemonTile(
+                  pokemon: _pokemonApiStore.pokemons[index],
+                );
+              },
+              childCount: _pokemonApiStore.pokemons.length,
+            ),
+          );
+        }
+      },
     );
   }
 }

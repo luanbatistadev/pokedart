@@ -197,7 +197,17 @@ class PokemonHeader extends SliverPersistentHeaderDelegate
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildText(name!, "Raro", true),
+              _buildText(
+                name!,
+                pokemon.isBaby!=null && pokemon.isBaby!
+                    ? 'Baby'
+                    : pokemon.isLegendary!=null && pokemon.isLegendary!
+                        ? 'Legendary'
+                        : pokemon.isLegendary!=null && pokemon.isMythical!
+                            ? 'Mythical'
+                            : 'Normal',
+                true,
+              ),
               _buildText('Tipo', type, false),
             ],
           ),

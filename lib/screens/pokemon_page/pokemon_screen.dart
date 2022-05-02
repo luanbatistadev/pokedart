@@ -40,7 +40,7 @@ class _PokemonPageState extends State<PokemonPage> {
                       ? widget.pokemon
                       : _pokemonApiStore.pokemon,
                   maxExtent: MediaQuery.of(context).size.height /
-                      (Platform.isAndroid ? 4 : 2),
+                      (Platform.isAndroid ? 4 : 3.2),
                 ),
               ),
               SliverToBoxAdapter(
@@ -172,13 +172,21 @@ class _PokemonPageState extends State<PokemonPage> {
           size: const Size(35, 20),
           child: evolution == null
               ? null
-              : Text(
-                  evolution.capitalize(),
-                  style: const TextStyle(
-                    fontFamily: 'OpenSans',
-                    fontSize: kFontSize,
-                    color: kRedColor,
-                    fontWeight: FontWeight.bold,
+              : InkWell(
+                  onTap: () => widget.pokemon.name != evolution
+                      ? Navigator.of(context).pushNamed(
+                          '/pokemon',
+                          arguments: Pokemon(name: evolution),
+                        )
+                      : null,
+                  child: Text(
+                    evolution.capitalize(),
+                    style: const TextStyle(
+                      fontFamily: 'OpenSans',
+                      fontSize: kFontSize,
+                      color: kRedColor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
         ),

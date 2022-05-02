@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedart/components/extension_string.dart';
 import 'package:pokedart/components/place_holder.dart';
 import 'package:pokedart/models/pokemon.dart';
 import 'package:pokedart/stores/pokemon_stores.dart';
@@ -101,7 +102,7 @@ class _PokemonTileState extends State<PokemonTile> {
             size: PlaceholderContainer.textPlaceholder,
             child: name != null
                 ? Text(
-                    'Tipo: $name',
+                    'Tipo: ${name.capitalize()}',
                     style: const TextStyle(
                       color: Colors.grey,
                       fontFamily: 'OpenSans',

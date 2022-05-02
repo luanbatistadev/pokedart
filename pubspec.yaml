@@ -27,7 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  build_runner: ^2.1.8
+  build_runner: ^2.1.10
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -35,8 +35,8 @@ dependencies:
   flutter_native_splash: ^2.1.6
   fluttertoast: ^8.0.9
   http: ^0.13.4
-  json_annotation: ^4.4.0
-  json_serializable: ^6.1.5
+  json_annotation: ^4.5.0
+  json_serializable: ^6.2.0
   mobx: ^2.0.6+1
   mobx_codegen: ^2.0.5+2
   shared_preferences: ^2.0.13

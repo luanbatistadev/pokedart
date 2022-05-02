@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 import 'package:pokedart/models/evolution.dart';
 
 part 'pokemon.g.dart';
@@ -14,6 +15,12 @@ class Pokemon {
   List<Abilities>? abilities;
   List<Moves>? moves;
   Sprites? sprites;
+  @JsonKey(name: 'is_baby')
+  bool? isBaby;
+  @JsonKey(name: 'is_legendary')
+  bool? isLegendary;
+  @JsonKey(name: 'is_mythical')
+  bool? isMythical;
 
   Pokemon({
     this.id,
@@ -25,6 +32,9 @@ class Pokemon {
     this.abilities,
     this.moves,
     this.sprites,
+    this.isBaby,
+    this.isLegendary,
+    this.isMythical,
   });
   factory Pokemon.fromJson(Map<String, dynamic> json) =>
       _$PokemonFromJson(json);
@@ -41,6 +51,9 @@ class Pokemon {
     List<Abilities>? abilities,
     List<Moves>? moves,
     Sprites? sprites,
+    bool? isBaby,
+    bool? isLegendary,
+    bool? isMythical,
   }) {
     return Pokemon(
       id: id ?? this.id,
@@ -52,6 +65,9 @@ class Pokemon {
       abilities: abilities ?? this.abilities,
       moves: moves ?? this.moves,
       sprites: sprites ?? this.sprites,
+      isBaby: isBaby ?? this.isBaby,
+      isLegendary: isLegendary ?? this.isLegendary,
+      isMythical: isMythical ?? this.isMythical,
     );
   }
 }
