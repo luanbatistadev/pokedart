@@ -4,7 +4,7 @@
 # <p align='center'>Web, Desktop && Mobile: IOS | Android</p>
 
 ## <p align='center'>Flutter</p>
-- ### The pokedart project was made for a company test, but it is much more than that. In it I learn one more skill, Mobx and I also develop my code in Flutter and Dart! Hope you like it!
+- ### The PokeDart project was made for a company test, but it is much more than that. In it I learn one more skill, Mobx and I also develop my code in Flutter and Dart! Hope you like it!
 
 
 ## <p align='center'>Mobile Version: Android | IOS</p>
