@@ -24,6 +24,9 @@ abstract class _PokeApiStoreBase with Store {
   @observable
   List<String> historyList = [];
 
+  @observable
+  bool isLoading = false;
+
   @action
   Future<void> getHistoryList() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -56,6 +59,7 @@ abstract class _PokeApiStoreBase with Store {
 
   @action
   Future<void> getFavorite(String name) async {
+    isLoading = true;
     final prefs = await SharedPreferences.getInstance();
     final favorite = prefs.getStringList('pokemons');
     if (favorite != null) {
@@ -65,6 +69,7 @@ abstract class _PokeApiStoreBase with Store {
         }
       }
     }
+    isLoading = false;
   }
 
   @action
@@ -95,7 +100,7 @@ abstract class _PokeApiStoreBase with Store {
   }
 
   @action
-  Future<void>  fetchPokemons() async {
+  Future<void> fetchPokemons() async {
     final List<Pokemon> pokemons = await fetchPokemonsFromApi();
 
     this.pokemons = pokemons;
@@ -103,6 +108,7 @@ abstract class _PokeApiStoreBase with Store {
 
   @action
   Future<void> searchPokemon(String name) async {
+    isLoading = true;
     await fetchPokemons();
     final List<Pokemon> pokemons = this
         .pokemons
@@ -115,13 +121,15 @@ abstract class _PokeApiStoreBase with Store {
         .toList();
 
     this.pokemons = pokemons;
+    isLoading = false;
   }
 
   @action
   Future<void> fetchDataListPokemon() async {
     final List<Pokemon> pokemons = this.pokemons;
+
     for (var i = 0; i < pokemons.length; i++) {
-      final Pokemon pokemon = await fetchDataPokemon(pokemons[i].name!) ;
+      final Pokemon pokemon = await fetchDataPokemon(pokemons[i].name!);
 
       pokemons[i] = pokemon;
       this.pokemons = pokemons;

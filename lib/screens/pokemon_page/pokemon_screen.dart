@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pokedart/components/constants/constants.dart';
@@ -40,7 +38,7 @@ class _PokemonPageState extends State<PokemonPage> {
                       ? widget.pokemon
                       : _pokemonApiStore.pokemon,
                   maxExtent: MediaQuery.of(context).size.height /
-                      (Platform.isAndroid ? 4 : 3.2),
+                      (4.3.clamp(3.2, 4.3)),
                 ),
               ),
               SliverToBoxAdapter(

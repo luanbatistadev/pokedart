@@ -73,6 +73,22 @@ mixin _$PokemonApiStore on _PokeApiStoreBase, Store {
     });
   }
 
+  late final _$isLoadingAtom =
+      Atom(name: '_PokeApiStoreBase.isLoading', context: context);
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   late final _$getHistoryListAsyncAction =
       AsyncAction('_PokeApiStoreBase.getHistoryList', context: context);
 
@@ -152,7 +168,8 @@ mixin _$PokemonApiStore on _PokeApiStoreBase, Store {
 pokemons: ${pokemons},
 pokemon: ${pokemon},
 isFavorite: ${isFavorite},
-historyList: ${historyList}
+historyList: ${historyList},
+isLoading: ${isLoading}
     ''';
   }
 }
